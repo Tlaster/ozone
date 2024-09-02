@@ -24,6 +24,15 @@ jobs:
       - name: Check Bluesky
         run: ./gradlew clean :bluesky:check --no-daemon --stacktrace
 
+      - name: Publish Snapshot
+        env:
+          SONATYPE_NEXUS_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+          SONATYPE_NEXUS_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
+          ./gradlew clean publish :generator:publish --no-daemon --stacktrace
+
 #  assemble-android:
 #    runs-on: ubuntu-latest
 #    timeout-minutes: 15

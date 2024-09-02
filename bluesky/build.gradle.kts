@@ -7,7 +7,7 @@ plugins {
   id("ozone-dokka")
   id("ozone-multiplatform")
   id("ozone-publish")
-  id("co.touchlab.kmmbridge")
+//  id("co.touchlab.kmmbridge")
   id("moe.tlaster.ozone.generator")
   id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
@@ -25,10 +25,10 @@ ozone {
   }
 }
 
-kmmbridge {
-  mavenPublishArtifacts()
+//kmmbridge {
+//  mavenPublishArtifacts()
 //  spm()
-}
+//}
 
 dependencies {
   lexicons(project(":lexicons"))

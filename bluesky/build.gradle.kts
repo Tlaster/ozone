@@ -27,7 +27,7 @@ ozone {
 
 kmmbridge {
   mavenPublishArtifacts()
-  spm()
+//  spm()
 }
 
 dependencies {

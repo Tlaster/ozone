@@ -24,7 +24,7 @@ kotlin {
         implementation(kotlin("reflect"))
       }
     }
-    val iosMain by getting {
+    val appleMain by getting {
       dependencies {
         api(libs.ktor.darwin)
       }

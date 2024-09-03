@@ -128,7 +128,11 @@ class LexiconApiGenerator(
           else -> error("Unknown encoding: $encoding")
         }
       } else {
-        UNIT
+        if (encoding == "*/*") {
+          BYTE_ARRAY
+        } else {
+          UNIT
+        }
       },
       description = description,
       encoding = encoding,

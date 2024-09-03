@@ -1265,6 +1265,24 @@ public final class app/bsky/actor/VisibilitySerializer : kotlinx/serialization/K
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 }
 
+public final class app/bsky/embed/AspectRatio {
+	public static final field Companion Lapp/bsky/embed/AspectRatio$Companion;
+	public fun <init> (JJ)V
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun copy (JJ)Lapp/bsky/embed/AspectRatio;
+	public static synthetic fun copy$default (Lapp/bsky/embed/AspectRatio;JJILjava/lang/Object;)Lapp/bsky/embed/AspectRatio;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeight ()J
+	public final fun getWidth ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/AspectRatio$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/External {
 	public static final field Companion Lapp/bsky/embed/External$Companion;
 	public fun <init> (Lapp/bsky/embed/ExternalExternal;)V
@@ -1359,36 +1377,18 @@ public final class app/bsky/embed/Images$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class app/bsky/embed/ImagesAspectRatio {
-	public static final field Companion Lapp/bsky/embed/ImagesAspectRatio$Companion;
-	public fun <init> (JJ)V
-	public final fun component1 ()J
-	public final fun component2 ()J
-	public final fun copy (JJ)Lapp/bsky/embed/ImagesAspectRatio;
-	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesAspectRatio;JJILjava/lang/Object;)Lapp/bsky/embed/ImagesAspectRatio;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getHeight ()J
-	public final fun getWidth ()J
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class app/bsky/embed/ImagesAspectRatio$Companion {
-	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
 public final class app/bsky/embed/ImagesImage {
 	public static final field Companion Lapp/bsky/embed/ImagesImage$Companion;
-	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)V
-	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component3 ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesImage;
-	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesImage;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesImage;
+	public final fun component3 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/ImagesImage;
+	public static synthetic fun copy$default (Lapp/bsky/embed/ImagesImage;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesImage;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
-	public final fun getAspectRatio ()Lapp/bsky/embed/ImagesAspectRatio;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
 	public final fun getImage ()Lsh/christian/ozone/api/model/Blob;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -1416,17 +1416,17 @@ public final class app/bsky/embed/ImagesView$Companion {
 
 public final class app/bsky/embed/ImagesViewImage {
 	public static final field Companion Lapp/bsky/embed/ImagesViewImage$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-v5vOzEc ()Ljava/lang/String;
 	public final fun component2-v5vOzEc ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Lapp/bsky/embed/ImagesAspectRatio;
-	public final fun copy-fa1GFIo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;)Lapp/bsky/embed/ImagesViewImage;
-	public static synthetic fun copy-fa1GFIo$default (Lapp/bsky/embed/ImagesViewImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/ImagesAspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesViewImage;
+	public final fun component4 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy-fa1GFIo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/ImagesViewImage;
+	public static synthetic fun copy-fa1GFIo$default (Lapp/bsky/embed/ImagesViewImage;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/ImagesViewImage;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAlt ()Ljava/lang/String;
-	public final fun getAspectRatio ()Lapp/bsky/embed/ImagesAspectRatio;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
 	public final fun getFullsize-v5vOzEc ()Ljava/lang/String;
 	public final fun getThumb-v5vOzEc ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -1489,6 +1489,24 @@ public final class app/bsky/embed/RecordViewBlocked$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class app/bsky/embed/RecordViewDetached {
+	public static final field Companion Lapp/bsky/embed/RecordViewDetached$Companion;
+	public synthetic fun <init> (Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun copy-wMvghHc (Ljava/lang/String;Z)Lapp/bsky/embed/RecordViewDetached;
+	public static synthetic fun copy-wMvghHc$default (Lapp/bsky/embed/RecordViewDetached;Ljava/lang/String;ZILjava/lang/Object;)Lapp/bsky/embed/RecordViewDetached;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetached ()Z
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/RecordViewDetached$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class app/bsky/embed/RecordViewNotFound {
 	public static final field Companion Lapp/bsky/embed/RecordViewNotFound$Companion;
 	public synthetic fun <init> (Ljava/lang/String;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1509,10 +1527,11 @@ public final class app/bsky/embed/RecordViewNotFound$Companion {
 
 public final class app/bsky/embed/RecordViewRecord {
 	public static final field Companion Lapp/bsky/embed/RecordViewRecord$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
-	public final fun component10 ()Lkotlinx/datetime/Instant;
+	public final fun component10 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component11 ()Lkotlinx/datetime/Instant;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
@@ -1520,9 +1539,9 @@ public final class app/bsky/embed/RecordViewRecord {
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
-	public final fun component9 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun copy-9gHWO9Q (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;)Lapp/bsky/embed/RecordViewRecord;
-	public static synthetic fun copy-9gHWO9Q$default (Lapp/bsky/embed/RecordViewRecord;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/embed/RecordViewRecord;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy--3547Zg (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;)Lapp/bsky/embed/RecordViewRecord;
+	public static synthetic fun copy--3547Zg$default (Lapp/bsky/embed/RecordViewRecord;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/embed/RecordViewRecord;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
@@ -1530,6 +1549,7 @@ public final class app/bsky/embed/RecordViewRecord {
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getQuoteCount ()Ljava/lang/Long;
 	public final fun getReplyCount ()Ljava/lang/Long;
 	public final fun getRepostCount ()Ljava/lang/Long;
 	public final fun getUri-x27MrHI ()Ljava/lang/String;
@@ -1660,6 +1680,34 @@ public final class app/bsky/embed/RecordViewRecordEmbedUnion$RecordWithMediaView
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-qIve0YM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMediaView;)V
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$VideoView : app/bsky/embed/RecordViewRecordEmbedUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordEmbedUnion$VideoView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/RecordViewRecordEmbedUnion$VideoView;
+	public static fun constructor-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/VideoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/VideoView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/VideoView;Lapp/bsky/embed/VideoView;)Z
+	public final fun getValue ()Lapp/bsky/embed/VideoView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/VideoView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/VideoView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/VideoView;
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$VideoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordViewRecordEmbedUnion$VideoViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-v8r4ErQ (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/VideoView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-FLHFv8Y (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/VideoView;)V
 }
 
 public abstract interface class app/bsky/embed/RecordViewRecordUnion {
@@ -1810,6 +1858,34 @@ public final class app/bsky/embed/RecordViewRecordUnion$ViewBlockedSerializer : 
 	public fun serialize-yfJev4A (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordViewBlocked;)V
 }
 
+public final class app/bsky/embed/RecordViewRecordUnion$ViewDetached : app/bsky/embed/RecordViewRecordUnion {
+	public static final field Companion Lapp/bsky/embed/RecordViewRecordUnion$ViewDetached$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/RecordViewDetached;)Lapp/bsky/embed/RecordViewRecordUnion$ViewDetached;
+	public static fun constructor-impl (Lapp/bsky/embed/RecordViewDetached;)Lapp/bsky/embed/RecordViewDetached;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/RecordViewDetached;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/RecordViewDetached;Lapp/bsky/embed/RecordViewDetached;)Z
+	public final fun getValue ()Lapp/bsky/embed/RecordViewDetached;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/RecordViewDetached;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/RecordViewDetached;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/RecordViewDetached;
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$ViewDetached$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordViewRecordUnion$ViewDetachedSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-SYEOfCk (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/RecordViewDetached;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-SoTO6uo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordViewDetached;)V
+}
+
 public final class app/bsky/embed/RecordViewRecordUnion$ViewNotFound : app/bsky/embed/RecordViewRecordUnion {
 	public static final field Companion Lapp/bsky/embed/RecordViewRecordUnion$ViewNotFound$Companion;
 	public static final synthetic fun box-impl (Lapp/bsky/embed/RecordViewNotFound;)Lapp/bsky/embed/RecordViewRecordUnion$ViewNotFound;
@@ -1948,6 +2024,34 @@ public final class app/bsky/embed/RecordWithMediaMediaUnion$ImagesSerializer : k
 	public fun serialize-bpt4rAs (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Images;)V
 }
 
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Video : app/bsky/embed/RecordWithMediaMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaMediaUnion$Video$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Video;)Lapp/bsky/embed/RecordWithMediaMediaUnion$Video;
+	public static fun constructor-impl (Lapp/bsky/embed/Video;)Lapp/bsky/embed/Video;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Video;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Video;Lapp/bsky/embed/Video;)Z
+	public final fun getValue ()Lapp/bsky/embed/Video;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Video;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Video;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Video;
+}
+
+public final class app/bsky/embed/RecordWithMediaMediaUnion$Video$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordWithMediaMediaUnion$VideoSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-5TyICvw (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Video;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-VmhZknQ (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Video;)V
+}
+
 public final class app/bsky/embed/RecordWithMediaView {
 	public static final field Companion Lapp/bsky/embed/RecordWithMediaView$Companion;
 	public fun <init> (Lapp/bsky/embed/RecordView;Lapp/bsky/embed/RecordWithMediaViewMediaUnion;)V
@@ -2028,6 +2132,100 @@ public final class app/bsky/embed/RecordWithMediaViewMediaUnion$ImagesViewSerial
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-Q-3rp7w (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/ImagesView;)V
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$VideoView : app/bsky/embed/RecordWithMediaViewMediaUnion {
+	public static final field Companion Lapp/bsky/embed/RecordWithMediaViewMediaUnion$VideoView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/RecordWithMediaViewMediaUnion$VideoView;
+	public static fun constructor-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/VideoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/VideoView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/VideoView;Lapp/bsky/embed/VideoView;)Z
+	public final fun getValue ()Lapp/bsky/embed/VideoView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/VideoView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/VideoView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/VideoView;
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$VideoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/RecordWithMediaViewMediaUnion$VideoViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-GhA73AQ (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/VideoView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-9fWC1Is (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/VideoView;)V
+}
+
+public final class app/bsky/embed/Video {
+	public static final field Companion Lapp/bsky/embed/Video$Companion;
+	public fun <init> (Lsh/christian/ozone/api/model/Blob;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)V
+	public synthetic fun <init> (Lsh/christian/ozone/api/model/Blob;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy (Lsh/christian/ozone/api/model/Blob;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/Video;
+	public static synthetic fun copy$default (Lapp/bsky/embed/Video;Lsh/christian/ozone/api/model/Blob;Lkotlinx/collections/immutable/ImmutableList;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/Video;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
+	public final fun getCaptions ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getVideo ()Lsh/christian/ozone/api/model/Blob;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/Video$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/VideoCaption {
+	public static final field Companion Lapp/bsky/embed/VideoCaption$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-ji_wBX8 ()Ljava/lang/String;
+	public final fun component2 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun copy-9C8flqM (Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;)Lapp/bsky/embed/VideoCaption;
+	public static synthetic fun copy-9C8flqM$default (Lapp/bsky/embed/VideoCaption;Ljava/lang/String;Lsh/christian/ozone/api/model/Blob;ILjava/lang/Object;)Lapp/bsky/embed/VideoCaption;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFile ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getLang-ji_wBX8 ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoCaption$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/embed/VideoView {
+	public static final field Companion Lapp/bsky/embed/VideoView$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-OA0YjOw ()Ljava/lang/String;
+	public final fun component2-v5vOzEc ()Ljava/lang/String;
+	public final fun component3-pvpWXas ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lapp/bsky/embed/AspectRatio;
+	public final fun copy-LaTufYA (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;)Lapp/bsky/embed/VideoView;
+	public static synthetic fun copy-LaTufYA$default (Lapp/bsky/embed/VideoView;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/embed/AspectRatio;ILjava/lang/Object;)Lapp/bsky/embed/VideoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlt ()Ljava/lang/String;
+	public final fun getAspectRatio ()Lapp/bsky/embed/AspectRatio;
+	public final fun getCid-OA0YjOw ()Ljava/lang/String;
+	public final fun getPlaylist-v5vOzEc ()Ljava/lang/String;
+	public final fun getThumbnail-pvpWXas ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/embed/VideoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
 public final class app/bsky/feed/BlockedAuthor {
@@ -2745,12 +2943,15 @@ public final class app/bsky/feed/GetPostThreadQueryParams$Companion {
 
 public final class app/bsky/feed/GetPostThreadResponse {
 	public static final field Companion Lapp/bsky/feed/GetPostThreadResponse$Companion;
-	public fun <init> (Lapp/bsky/feed/GetPostThreadResponseThreadUnion;)V
+	public fun <init> (Lapp/bsky/feed/GetPostThreadResponseThreadUnion;Lapp/bsky/feed/ThreadgateView;)V
+	public synthetic fun <init> (Lapp/bsky/feed/GetPostThreadResponseThreadUnion;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Lapp/bsky/feed/GetPostThreadResponseThreadUnion;
-	public final fun copy (Lapp/bsky/feed/GetPostThreadResponseThreadUnion;)Lapp/bsky/feed/GetPostThreadResponse;
-	public static synthetic fun copy$default (Lapp/bsky/feed/GetPostThreadResponse;Lapp/bsky/feed/GetPostThreadResponseThreadUnion;ILjava/lang/Object;)Lapp/bsky/feed/GetPostThreadResponse;
+	public final fun component2 ()Lapp/bsky/feed/ThreadgateView;
+	public final fun copy (Lapp/bsky/feed/GetPostThreadResponseThreadUnion;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/GetPostThreadResponse;
+	public static synthetic fun copy$default (Lapp/bsky/feed/GetPostThreadResponse;Lapp/bsky/feed/GetPostThreadResponseThreadUnion;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/GetPostThreadResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getThread ()Lapp/bsky/feed/GetPostThreadResponseThreadUnion;
+	public final fun getThreadgate ()Lapp/bsky/feed/ThreadgateView;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }
@@ -2881,6 +3082,53 @@ public final class app/bsky/feed/GetPostsResponse {
 }
 
 public final class app/bsky/feed/GetPostsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/GetQuotesQueryParams {
+	public static final field Companion Lapp/bsky/feed/GetQuotesQueryParams$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OC6CE0s ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy-lmWnT7w (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;)Lapp/bsky/feed/GetQuotesQueryParams;
+	public static synthetic fun copy-lmWnT7w$default (Lapp/bsky/feed/GetQuotesQueryParams;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Long;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/feed/GetQuotesQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OC6CE0s ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getLimit ()Ljava/lang/Long;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetQuotesQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/GetQuotesResponse {
+	public static final field Companion Lapp/bsky/feed/GetQuotesResponse$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-x27MrHI ()Ljava/lang/String;
+	public final fun component2-OC6CE0s ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-lmWnT7w (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/feed/GetQuotesResponse;
+	public static synthetic fun copy-lmWnT7w$default (Lapp/bsky/feed/GetQuotesResponse;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/feed/GetQuotesResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCid-OC6CE0s ()Ljava/lang/String;
+	public final fun getCursor ()Ljava/lang/String;
+	public final fun getPosts ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getUri-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/GetQuotesResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -3222,6 +3470,34 @@ public final class app/bsky/feed/PostEmbedUnion$RecordWithMediaSerializer : kotl
 	public fun serialize-mabN7vo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMedia;)V
 }
 
+public final class app/bsky/feed/PostEmbedUnion$Video : app/bsky/feed/PostEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostEmbedUnion$Video$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/Video;)Lapp/bsky/feed/PostEmbedUnion$Video;
+	public static fun constructor-impl (Lapp/bsky/embed/Video;)Lapp/bsky/embed/Video;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/Video;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/Video;Lapp/bsky/embed/Video;)Z
+	public final fun getValue ()Lapp/bsky/embed/Video;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/Video;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/Video;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/Video;
+}
+
+public final class app/bsky/feed/PostEmbedUnion$Video$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostEmbedUnion$VideoSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-cJGKC8c (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/Video;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-vvGPb3Y (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/Video;)V
+}
+
 public final class app/bsky/feed/PostEntity$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
@@ -3286,12 +3562,13 @@ public final class app/bsky/feed/PostTextSlice$Companion {
 
 public final class app/bsky/feed/PostView {
 	public static final field Companion Lapp/bsky/feed/PostView$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
-	public final fun component10 ()Lapp/bsky/feed/ViewerState;
-	public final fun component11 ()Lkotlinx/collections/immutable/ImmutableList;
-	public final fun component12 ()Lapp/bsky/feed/ThreadgateView;
+	public final fun component10 ()Lkotlinx/datetime/Instant;
+	public final fun component11 ()Lapp/bsky/feed/ViewerState;
+	public final fun component12 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component13 ()Lapp/bsky/feed/ThreadgateView;
 	public final fun component2-OA0YjOw ()Ljava/lang/String;
 	public final fun component3 ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun component4 ()Lsh/christian/ozone/api/model/JsonContent;
@@ -3299,9 +3576,9 @@ public final class app/bsky/feed/PostView {
 	public final fun component6 ()Ljava/lang/Long;
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
-	public final fun component9 ()Lkotlinx/datetime/Instant;
-	public final fun copy-LE8D4Hk (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/PostView;
-	public static synthetic fun copy-LE8D4Hk$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
+	public final fun component9 ()Ljava/lang/Long;
+	public final fun copy-PaJitKE (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;)Lapp/bsky/feed/PostView;
+	public static synthetic fun copy-PaJitKE$default (Lapp/bsky/feed/PostView;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/actor/ProfileViewBasic;Lsh/christian/ozone/api/model/JsonContent;Lapp/bsky/feed/PostViewEmbedUnion;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Long;Lkotlinx/datetime/Instant;Lapp/bsky/feed/ViewerState;Lkotlinx/collections/immutable/ImmutableList;Lapp/bsky/feed/ThreadgateView;ILjava/lang/Object;)Lapp/bsky/feed/PostView;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAuthor ()Lapp/bsky/actor/ProfileViewBasic;
 	public final fun getCid-OA0YjOw ()Ljava/lang/String;
@@ -3309,6 +3586,7 @@ public final class app/bsky/feed/PostView {
 	public final fun getIndexedAt ()Lkotlinx/datetime/Instant;
 	public final fun getLabels ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getLikeCount ()Ljava/lang/Long;
+	public final fun getQuoteCount ()Ljava/lang/Long;
 	public final fun getRecord ()Lsh/christian/ozone/api/model/JsonContent;
 	public final fun getReplyCount ()Ljava/lang/Long;
 	public final fun getRepostCount ()Ljava/lang/Long;
@@ -3441,6 +3719,98 @@ public final class app/bsky/feed/PostViewEmbedUnion$RecordWithMediaViewSerialize
 	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
 	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
 	public fun serialize-zYapUKM (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/RecordWithMediaView;)V
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$VideoView : app/bsky/feed/PostViewEmbedUnion {
+	public static final field Companion Lapp/bsky/feed/PostViewEmbedUnion$VideoView$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/feed/PostViewEmbedUnion$VideoView;
+	public static fun constructor-impl (Lapp/bsky/embed/VideoView;)Lapp/bsky/embed/VideoView;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/embed/VideoView;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/embed/VideoView;Lapp/bsky/embed/VideoView;)Z
+	public final fun getValue ()Lapp/bsky/embed/VideoView;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/embed/VideoView;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/embed/VideoView;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/embed/VideoView;
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$VideoView$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostViewEmbedUnion$VideoViewSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-mYNLfrQ (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/embed/VideoView;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-WDGl2-E (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/embed/VideoView;)V
+}
+
+public final class app/bsky/feed/Postgate {
+	public static final field Companion Lapp/bsky/feed/Postgate$Companion;
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lkotlinx/datetime/Instant;
+	public final fun component2-x27MrHI ()Ljava/lang/String;
+	public final fun component3 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-z0QBWD0 (Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/feed/Postgate;
+	public static synthetic fun copy-z0QBWD0$default (Lapp/bsky/feed/Postgate;Lkotlinx/datetime/Instant;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/feed/Postgate;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getDetachedEmbeddingUris ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getEmbeddingRules ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun getPost-x27MrHI ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/feed/Postgate$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostgateDisableRule {
+	public static final field INSTANCE Lapp/bsky/feed/PostgateDisableRule;
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract interface class app/bsky/feed/PostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/feed/PostgateEmbeddingRuleUnion$Companion;
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$DisableRule : app/bsky/feed/PostgateEmbeddingRuleUnion {
+	public static final field Companion Lapp/bsky/feed/PostgateEmbeddingRuleUnion$DisableRule$Companion;
+	public static final synthetic fun box-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/feed/PostgateEmbeddingRuleUnion$DisableRule;
+	public static fun constructor-impl (Lapp/bsky/feed/PostgateDisableRule;)Lapp/bsky/feed/PostgateDisableRule;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Lapp/bsky/feed/PostgateDisableRule;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Lapp/bsky/feed/PostgateDisableRule;Lapp/bsky/feed/PostgateDisableRule;)Z
+	public final fun getValue ()Lapp/bsky/feed/PostgateDisableRule;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Lapp/bsky/feed/PostgateDisableRule;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Lapp/bsky/feed/PostgateDisableRule;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Lapp/bsky/feed/PostgateDisableRule;
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$DisableRule$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/feed/PostgateEmbeddingRuleUnion$DisableRuleSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun deserialize-DJDUXu0 (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/feed/PostgateDisableRule;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun serialize-39U58zo (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/feed/PostgateDisableRule;)V
 }
 
 public final class app/bsky/feed/ReasonRepost {
@@ -4070,16 +4440,18 @@ public final class app/bsky/feed/ThreadViewPostReplieUnion$ThreadViewPostSeriali
 
 public final class app/bsky/feed/Threadgate {
 	public static final field Companion Lapp/bsky/feed/Threadgate$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-x27MrHI ()Ljava/lang/String;
 	public final fun component2 ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun component3 ()Lkotlinx/datetime/Instant;
-	public final fun copy-DeKbev8 (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;)Lapp/bsky/feed/Threadgate;
-	public static synthetic fun copy-DeKbev8$default (Lapp/bsky/feed/Threadgate;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;ILjava/lang/Object;)Lapp/bsky/feed/Threadgate;
+	public final fun component4 ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun copy-M68XubM (Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;)Lapp/bsky/feed/Threadgate;
+	public static synthetic fun copy-M68XubM$default (Lapp/bsky/feed/Threadgate;Ljava/lang/String;Lkotlinx/collections/immutable/ImmutableList;Lkotlinx/datetime/Instant;Lkotlinx/collections/immutable/ImmutableList;ILjava/lang/Object;)Lapp/bsky/feed/Threadgate;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAllow ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getCreatedAt ()Lkotlinx/datetime/Instant;
+	public final fun getHiddenReplies ()Lkotlinx/collections/immutable/ImmutableList;
 	public final fun getPost-x27MrHI ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
@@ -4266,15 +4638,17 @@ public final class app/bsky/feed/TokenSerializer : kotlinx/serialization/KSerial
 
 public final class app/bsky/feed/ViewerState {
 	public static final field Companion Lapp/bsky/feed/ViewerState$Companion;
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-W3xQKsw ()Ljava/lang/String;
 	public final fun component2-W3xQKsw ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Boolean;
 	public final fun component4 ()Ljava/lang/Boolean;
-	public final fun copy-r03NU7U (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
-	public static synthetic fun copy-r03NU7U$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
+	public final fun component5 ()Ljava/lang/Boolean;
+	public final fun copy-FyXoqqc (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)Lapp/bsky/feed/ViewerState;
+	public static synthetic fun copy-FyXoqqc$default (Lapp/bsky/feed/ViewerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lapp/bsky/feed/ViewerState;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEmbeddingDisabled ()Ljava/lang/Boolean;
 	public final fun getLike-W3xQKsw ()Ljava/lang/String;
 	public final fun getReplyDisabled ()Ljava/lang/Boolean;
 	public final fun getRepost-W3xQKsw ()Ljava/lang/String;
@@ -6387,6 +6761,133 @@ public final class app/bsky/unspecced/SkeletonSearchPost {
 }
 
 public final class app/bsky/unspecced/SkeletonSearchPost$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/GetJobStatusQueryParams {
+	public static final field Companion Lapp/bsky/video/GetJobStatusQueryParams$Companion;
+	public fun <init> (Ljava/lang/String;)V
+	public final fun asList ()Lkotlinx/collections/immutable/ImmutableList;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lapp/bsky/video/GetJobStatusQueryParams;
+	public static synthetic fun copy$default (Lapp/bsky/video/GetJobStatusQueryParams;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/video/GetJobStatusQueryParams;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getJobId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/GetJobStatusQueryParams$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/GetJobStatusResponse {
+	public static final field Companion Lapp/bsky/video/GetJobStatusResponse$Companion;
+	public fun <init> (Lapp/bsky/video/JobStatus;)V
+	public final fun component1 ()Lapp/bsky/video/JobStatus;
+	public final fun copy (Lapp/bsky/video/JobStatus;)Lapp/bsky/video/GetJobStatusResponse;
+	public static synthetic fun copy$default (Lapp/bsky/video/GetJobStatusResponse;Lapp/bsky/video/JobStatus;ILjava/lang/Object;)Lapp/bsky/video/GetJobStatusResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getJobStatus ()Lapp/bsky/video/JobStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/GetJobStatusResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/GetUploadLimitsResponse {
+	public static final field Companion Lapp/bsky/video/GetUploadLimitsResponse$Companion;
+	public fun <init> (ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Ljava/lang/Long;
+	public final fun component3 ()Ljava/lang/Long;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/video/GetUploadLimitsResponse;
+	public static synthetic fun copy$default (Lapp/bsky/video/GetUploadLimitsResponse;ZLjava/lang/Long;Ljava/lang/Long;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/video/GetUploadLimitsResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCanUpload ()Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getRemainingDailyBytes ()Ljava/lang/Long;
+	public final fun getRemainingDailyVideos ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/GetUploadLimitsResponse$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/JobStatus {
+	public static final field Companion Lapp/bsky/video/JobStatus$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/video/State;Ljava/lang/Long;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/video/State;Ljava/lang/Long;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-715Ygxc ()Ljava/lang/String;
+	public final fun component3 ()Lapp/bsky/video/State;
+	public final fun component4 ()Ljava/lang/Long;
+	public final fun component5 ()Lsh/christian/ozone/api/model/Blob;
+	public final fun component6 ()Ljava/lang/String;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy-alk0mbY (Ljava/lang/String;Ljava/lang/String;Lapp/bsky/video/State;Ljava/lang/Long;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Ljava/lang/String;)Lapp/bsky/video/JobStatus;
+	public static synthetic fun copy-alk0mbY$default (Lapp/bsky/video/JobStatus;Ljava/lang/String;Ljava/lang/String;Lapp/bsky/video/State;Ljava/lang/Long;Lsh/christian/ozone/api/model/Blob;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lapp/bsky/video/JobStatus;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlob ()Lsh/christian/ozone/api/model/Blob;
+	public final fun getDid-715Ygxc ()Ljava/lang/String;
+	public final fun getError ()Ljava/lang/String;
+	public final fun getJobId ()Ljava/lang/String;
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getProgress ()Ljava/lang/Long;
+	public final fun getState ()Lapp/bsky/video/State;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/JobStatus$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/State : java/lang/Enum, sh/christian/ozone/api/model/AtpEnum {
+	public static final field Companion Lapp/bsky/video/State$Companion;
+	public static final field J_O_B_S_T_A_T_E_C_O_M_P_L_E_T_E_D Lapp/bsky/video/State;
+	public static final field J_O_B_S_T_A_T_E_F_A_I_L_E_D Lapp/bsky/video/State;
+	public static final field UNKNOWN Lapp/bsky/video/State;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public fun getValue ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lapp/bsky/video/State;
+	public static fun values ()[Lapp/bsky/video/State;
+}
+
+public final class app/bsky/video/State$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class app/bsky/video/StateSerializer : kotlinx/serialization/KSerializer {
+	public fun <init> ()V
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lapp/bsky/video/State;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lapp/bsky/video/State;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+}
+
+public final class app/bsky/video/UploadVideoResponse {
+	public static final field Companion Lapp/bsky/video/UploadVideoResponse$Companion;
+	public fun <init> (Lapp/bsky/video/JobStatus;)V
+	public final fun component1 ()Lapp/bsky/video/JobStatus;
+	public final fun copy (Lapp/bsky/video/JobStatus;)Lapp/bsky/video/UploadVideoResponse;
+	public static synthetic fun copy$default (Lapp/bsky/video/UploadVideoResponse;Lapp/bsky/video/JobStatus;ILjava/lang/Object;)Lapp/bsky/video/UploadVideoResponse;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getJobStatus ()Lapp/bsky/video/JobStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class app/bsky/video/UploadVideoResponse$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -11540,6 +12041,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11558,6 +12060,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getQuotes (Lapp/bsky/feed/GetQuotesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRecommendedDidCredentials (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRecord (Lcom/atproto/repo/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getRecord (Lcom/atproto/sync/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11580,6 +12083,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11646,6 +12150,7 @@ public abstract interface class sh/christian/ozone/BlueskyApi {
 	public abstract fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun uploadVideo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/BlueskyApi {
@@ -11704,6 +12209,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getFollowers (Lapp/bsky/graph/GetFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getFollows (Lapp/bsky/graph/GetFollowsQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getInviteCodes (Lcom/atproto/admin/GetInviteCodesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getJobStatus (Lapp/bsky/video/GetJobStatusQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getKnownFollowers (Lapp/bsky/graph/GetKnownFollowersQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLatestCommit (Lcom/atproto/sync/GetLatestCommitQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getLikes (Lapp/bsky/feed/GetLikesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11722,6 +12228,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getPreferences (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfile (Lapp/bsky/actor/GetProfileQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getProfiles (Lapp/bsky/actor/GetProfilesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getQuotes (Lapp/bsky/feed/GetQuotesQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRecommendedDidCredentials (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRecord (Lcom/atproto/repo/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getRecord (Lcom/atproto/sync/GetRecordQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11744,6 +12251,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun getTaggedSuggestions (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getTimeline (Lapp/bsky/feed/GetTimelineQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun getUnreadCount (Lapp/bsky/notification/GetUnreadCountQueryParams;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getUploadLimits (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun importRepo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun leaveConvo (Lchat/bsky/convo/LeaveConvoRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun listAppPasswords (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -11810,6 +12318,7 @@ public final class sh/christian/ozone/XrpcBlueskyApi : sh/christian/ozone/Bluesk
 	public fun updateSubjectStatus (Lcom/atproto/admin/UpdateSubjectStatusRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun updateTemplate (Ltools/ozone/communication/UpdateTemplateRequest;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public fun uploadBlob (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun uploadVideo (Lkotlin/Unit;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
 public final class sh/christian/ozone/api/xrpc/FindSubscriptionSerializerKt {

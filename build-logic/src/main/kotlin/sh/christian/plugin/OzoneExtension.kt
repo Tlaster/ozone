@@ -82,6 +82,12 @@ abstract class OzoneExtension(
     }
   }
 
+  fun linux() {
+      kotlin {
+          linuxX64()
+      }
+  }
+
   private fun kotlin(configure: KotlinMultiplatformExtension.() -> Unit) {
     configure(project.kotlinExtension as KotlinMultiplatformExtension)
   }

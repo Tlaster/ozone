@@ -15,6 +15,7 @@ plugins {
 ozone {
   js()
   jvm()
+  linux()
   ios("BlueskyAPI") {
     project.configurations[exportConfigurationName].extendsFrom(
       project.configurations["${target.name}CompilationApi"]

@@ -9,6 +9,7 @@ ozone {
   js()
   jvm()
   ios("BlueskyAPIRuntime")
+  linux()
 }
 
 kotlin {

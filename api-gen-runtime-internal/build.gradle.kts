@@ -8,6 +8,7 @@ ozone {
   js()
   jvm()
   ios("BlueskyAPIRuntimeInternal")
+  linux()
 }
 
 kotlin {
@@ -43,6 +44,11 @@ kotlin {
       dependencies {
         implementation(libs.ktor.js)
       }
+    }
+    val linuxMain by getting {
+        dependencies {
+            implementation(libs.ktor.cio)
+        }
     }
   }
 }

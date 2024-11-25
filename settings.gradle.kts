@@ -23,12 +23,12 @@ plugins {
 rootProject.name = "ozone"
 
 // Sample app modules
-include(":app:android")
-include(":app:common")
-include(":app:desktop")
-include(":app:ios")
-include(":app:store")
-include(":app:web")
+// include(":app:android")
+// include(":app:common")
+// include(":app:desktop")
+// include(":app:ios")
+// include(":app:store")
+// include(":app:web")
 
 // Published artifact modules
 include(":api-gen-runtime")

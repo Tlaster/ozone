@@ -10,38 +10,8 @@ on:
 
 jobs:
   check-bluesky:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
-
-      - name: Check Bluesky
-        run: ./gradlew clean :bluesky:check --no-daemon --stacktrace
-
-  assemble-android:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
-
-      - name: Assemble Android
-        run: ./gradlew clean :app:android:assemble --no-daemon --stacktrace
-
-  assemble-ios:
     runs-on: macos-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
 
     steps:
       - uses: actions/checkout@v3
@@ -51,41 +21,11 @@ jobs:
           java-version: '17'
           check-latest: true
 
-      - name: Assemble iOS
-        uses: mxcl/xcodebuild@v2
-        with:
-          platform: iOS
-          action: build
-          scheme: ozone
-          configuration: debug
-          working-directory: app/iosApp/
-
-  assemble-js:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
-
-      - name: Assemble JS
-        run: ./gradlew clean :app:web:assemble --no-daemon --stacktrace
-
-  assemble-jvm:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          check-latest: true
-
-      - name: Assemble JVM
-        run: ./gradlew clean :app:desktop:assemble --no-daemon --stacktrace
+      - name: Publish Snapshot
+        env:
+          SONATYPE_NEXUS_USERNAME: ${{ secrets.SONATYPE_NEXUS_USERNAME }}
+          SONATYPE_NEXUS_PASSWORD: ${{ secrets.SONATYPE_NEXUS_PASSWORD }}
+        run: |
+          ORG_GRADLE_PROJECT_mavenCentralUsername="$SONATYPE_NEXUS_USERNAME" \
+          ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_NEXUS_PASSWORD" \
+          ./gradlew clean publish :generator:publish --no-daemon --stacktrace

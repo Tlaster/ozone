@@ -5,7 +5,7 @@ plugins {
   id("ozone-dokka")
   id("ozone-multiplatform")
   id("ozone-publish")
-  id("sh.christian.ozone.generator")
+  id("moe.tlaster.ozone.generator")
 }
 
 ozone {

@@ -88,10 +88,10 @@ private fun KotlinTarget.applyConfiguration(
       api("org.jetbrains.kotlinx:kotlinx-serialization-core:${Dependencies.KOTLINX_SERIALIZATION}")
 
       // Expose certain types that are publicly used in the generated classes.
-      api("sh.christian.ozone:api-gen-runtime:${Dependencies.OZONE}")
+      api("moe.tlaster.ozone:api-gen-runtime:${Dependencies.OZONE}")
 
       // Keep some internal utility methods only on the runtime classpath
-      implementation("sh.christian.ozone:api-gen-runtime-internal:${Dependencies.OZONE}")
+      implementation("moe.tlaster.ozone:api-gen-runtime-internal:${Dependencies.OZONE}")
     }
   }
 

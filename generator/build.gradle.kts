@@ -34,7 +34,7 @@ dependencies {
 gradlePlugin {
   plugins {
     create("generator") {
-      id = "sh.christian.ozone.generator"
+      id = "moe.tlaster.ozone.generator"
       implementationClass = "sh.christian.ozone.api.gradle.LexiconGeneratorPlugin"
     }
   }

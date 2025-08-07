@@ -3,22 +3,14 @@ package sh.christian.ozone.oauth
 import dev.whyoleg.cryptography.algorithms.ECDSA
 import dev.whyoleg.cryptography.algorithms.SHA256
 import dev.whyoleg.cryptography.random.CryptographyRandom
-import io.ktor.client.HttpClient
-import io.ktor.client.call.body
-import io.ktor.client.call.save
-import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
-import io.ktor.client.request.forms.FormDataContent
-import io.ktor.client.request.get
-import io.ktor.client.request.post
-import io.ktor.client.request.setBody
-import io.ktor.client.statement.HttpResponse
-import io.ktor.http.Parameters
-import io.ktor.http.ParametersBuilder
-import io.ktor.http.Url
-import io.ktor.http.buildUrl
-import io.ktor.http.isSuccess
-import io.ktor.http.takeFrom
-import io.ktor.serialization.kotlinx.json.json
+import io.ktor.client.*
+import io.ktor.client.call.*
+import io.ktor.client.plugins.contentnegotiation.*
+import io.ktor.client.request.*
+import io.ktor.client.request.forms.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import io.ktor.serialization.kotlinx.json.*
 import kotlinx.coroutines.coroutineScope
 import kotlinx.datetime.Clock
 import kotlinx.serialization.json.Json
@@ -80,6 +72,7 @@ class OAuthApi(
     oauthClient: OAuthClient,
     scopes: List<OAuthScope>,
     loginHandleHint: String? = null,
+    keyPair: DpopKeyPair? = null,
   ): OAuthAuthorizationRequest = coroutineScope {
     val oauthServer = resolveOAuthAuthorizationServer()
 
@@ -106,9 +99,22 @@ class OAuthApi(
       state = state,
       loginHint = loginHandleHint,
     )
+    val dpopKeyPair = resolveDpopKeyPair(providedKeyPair = keyPair)
+
+    val nonceResponse = client.post(Url(oauthServer.pushedAuthorizationRequestEndpoint))
+      val nonce = nonceResponse.responseDpopNonce
+
+    val dpopHeader = createDpopHeaderValue(
+        keyPair = dpopKeyPair,
+        method = "POST",
+        endpoint = Url(oauthServer.pushedAuthorizationRequestEndpoint).toString(),
+        nonce = nonce,
+        accessToken = null,
+    )
 
     val callResponse = client.post(Url(oauthServer.pushedAuthorizationRequestEndpoint)) {
       headers["Content-Type"] = "application/json"
+      headers["DPoP"] = dpopHeader
       setBody(request)
     }
 
@@ -121,7 +127,7 @@ class OAuthApi(
       },
     )
 
-    val nonce = callResponse.responseDpopNonce
+//    val nonce = callResponse.responseDpopNonce
 
     val authorizeRequestUrl = buildUrl {
       takeFrom(oauthServer.authorizationEndpoint)

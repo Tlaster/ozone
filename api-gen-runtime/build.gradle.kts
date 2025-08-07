@@ -22,7 +22,7 @@ kotlin {
         implementation(kotlin("reflect"))
       }
     }
-    val iosMain by getting {
+    val appleMain by getting {
       dependencies {
         implementation(libs.ktor.darwin)
       }

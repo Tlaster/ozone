@@ -59,7 +59,7 @@ internal constructor(
     internal val format: EC.PublicKey.Format
       get() = when (this) {
         JWK -> EC.PublicKey.Format.JWK
-        RAW -> EC.PublicKey.Format.RAW
+        RAW -> EC.PublicKey.Format.RAW.Uncompressed
         PEM -> EC.PublicKey.Format.PEM
         DER -> EC.PublicKey.Format.DER
       }

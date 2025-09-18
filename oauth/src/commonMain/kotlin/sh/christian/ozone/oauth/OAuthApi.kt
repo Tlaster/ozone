@@ -358,7 +358,7 @@ class OAuthApi(
         put("nonce", JsonPrimitive(it))
       }
       accessToken?.let {
-        put("ath", JsonPrimitive(OAuthCodeChallengeMethod.S256.provideCodeChallenge(accessToken)))
+        put("ath", JsonPrimitive(challengeSelector.selectCodeChallengeMethod(listOf("S256")).provideCodeChallenge(accessToken)))
       }
     }
 

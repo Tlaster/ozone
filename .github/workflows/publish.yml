@@ -13,7 +13,7 @@ permissions:
 jobs:
   publish-jvm:
     runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+    if: github.repository == 'Tlaster/ozone'
     timeout-minutes: 60
 
     steps:
@@ -46,7 +46,7 @@ jobs:
 
   publish-js:
     runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+    if: github.repository == 'Tlaster/ozone'
     timeout-minutes: 60
 
     steps:
@@ -79,7 +79,7 @@ jobs:
 
   publish-kotlin:
     runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+    if: github.repository == 'Tlaster/ozone'
     timeout-minutes: 60
 
     steps:
@@ -112,7 +112,7 @@ jobs:
 
   publish-ios:
     runs-on: macos-latest
-    if: github.repository == 'christiandeange/ozone'
+    if: github.repository == 'Tlaster/ozone'
     timeout-minutes: 60
 
     steps:
@@ -151,7 +151,7 @@ jobs:
 
   publish-release:
     runs-on: ubuntu-latest
-    if: github.repository == 'christiandeange/ozone'
+    if: github.repository == 'Tlaster/ozone'
     timeout-minutes: 30
     needs:
       - publish-jvm

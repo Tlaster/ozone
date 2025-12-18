@@ -12,8 +12,7 @@ permissions:
 
 jobs:
   publish-release:
-    runs-on: macos-latest
-    if: github.repository == 'christiandeange/ozone'
+    runs-on: ubuntu-latest
     timeout-minutes: 60
 
     steps:

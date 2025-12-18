@@ -52,3 +52,6 @@ tasks.apiCheck.configure { dependsOn(generateLexicons) }
 tasks.withType<AbstractDokkaTask>().configureEach {
   dependsOn(tasks.withType<KotlinCompile>())
 }
+tasks.named("dokkaGeneratePublicationHtml") {
+    dependsOn(tasks.named("generateLexicons"))
+}

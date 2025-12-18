@@ -7,8 +7,6 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 jobs:
   publish-jvm:
@@ -36,7 +34,7 @@ jobs:
           ORG_GRADLE_PROJECT_mavenCentralPassword="$SONATYPE_CENTRAL_PASSWORD" \
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
-          ./gradlew clean publishJvmPublicationToStagingRepository :generator:publishAllPublicationsToStagingRepository -Pozone.stagingDir="$GITHUB_WORKSPACE/staging-deploy" --no-daemon --stacktrace
+          ./gradlew clean publishJvmPublicationToStagingRepository :lexicons:publishAllPublicationsToStagingRepository :generator:publishAllPublicationsToStagingRepository -Pozone.stagingDir="$GITHUB_WORKSPACE/staging-deploy" --no-daemon --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
@@ -179,9 +177,3 @@ jobs:
             -H "Authorization: Bearer $TOKEN" \
             -F bundle=@bundle.zip \
             "https://central.sonatype.com/api/v1/publisher/upload?publishingType=AUTOMATIC"
-
-  deploy-release-docs:
-    uses: ./.github/workflows/deploy_docs.yml
-    secrets: inherit
-    needs:
-      - publish-release

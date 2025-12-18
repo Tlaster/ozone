@@ -5,11 +5,6 @@ on:
     tags:
       - 'v*.*.*'
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
   publish-release:
     runs-on: ubuntu-latest
@@ -36,9 +31,3 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey="$ARTIFACT_SIGNING_PRIVATE_KEY" \
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword="$ARTIFACT_SIGNING_PRIVATE_KEY_PASSWORD" \
           ./gradlew clean publish :generator:publish --no-daemon --stacktrace
-
-  deploy-release-docs:
-    uses: ./.github/workflows/deploy_docs.yml
-    secrets: inherit
-    needs:
-      - publish-release

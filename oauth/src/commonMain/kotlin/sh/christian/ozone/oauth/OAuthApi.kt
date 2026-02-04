@@ -7,6 +7,7 @@ import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.call.save
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.plugins.pluginOrNull
 import io.ktor.client.request.forms.FormDataContent
 import io.ktor.client.request.get
 import io.ktor.client.request.post
@@ -16,11 +17,11 @@ import io.ktor.http.Parameters
 import io.ktor.http.ParametersBuilder
 import io.ktor.http.Url
 import io.ktor.http.buildUrl
+import io.ktor.http.headers
 import io.ktor.http.isSuccess
 import io.ktor.http.takeFrom
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.coroutines.coroutineScope
-import kotlin.time.Clock
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
@@ -28,12 +29,14 @@ import kotlinx.serialization.json.buildJsonObject
 import sh.christian.ozone.api.response.AtpErrorDescription
 import sh.christian.ozone.api.response.AtpException
 import sh.christian.ozone.api.response.StatusCode
+import sh.christian.ozone.api.runtime.buildXrpcJsonConfiguration
 import sh.christian.ozone.api.xrpc.defaultHttpClient
 import sh.christian.ozone.oauth.network.OAuthAuthorizationServer
 import sh.christian.ozone.oauth.network.OAuthParRequest
 import sh.christian.ozone.oauth.network.OAuthParResponse
 import sh.christian.ozone.oauth.network.OAuthTokenResponse
 import kotlin.random.Random
+import kotlin.time.Clock
 import kotlin.time.Duration.Companion.seconds
 
 /**
@@ -53,8 +56,10 @@ class OAuthApi(
   private val clock: Clock = Clock.System,
 ) {
   private val client: HttpClient = httpClient.config {
-    install(ContentNegotiation) {
-      json(Json { ignoreUnknownKeys = true })
+    if (httpClient.pluginOrNull(ContentNegotiation) == null) {
+      install(ContentNegotiation) {
+        json(buildXrpcJsonConfiguration())
+      }
     }
   }
 
@@ -107,7 +112,11 @@ class OAuthApi(
       loginHint = loginHandleHint,
     )
 
-    val callResponse = client.post(Url(oauthServer.pushedAuthorizationRequestEndpoint)) {
+    val parEndpoint = requireNotNull(oauthServer.pushedAuthorizationRequestEndpoint) {
+      "OAuth server does not support Pushed Authorization Requests"
+    }
+
+    val callResponse = client.post(Url(parEndpoint)) {
       headers["Content-Type"] = "application/json"
       setBody(request)
     }
@@ -283,19 +292,21 @@ class OAuthApi(
     keyPair: DpopKeyPair?,
   ) {
     val oauthServer = resolveOAuthAuthorizationServer()
-    val revokeUrl = Url(oauthServer.revocationEndpoint)
+    val revokeUrl = requireNotNull(oauthServer.revocationEndpoint) {
+      "OAuth server does not support token revocation"
+    }
 
     val dpopKeyPair = resolveDpopKeyPair(providedKeyPair = keyPair)
 
     val dpopHeader = createDpopHeaderValue(
       keyPair = dpopKeyPair,
       method = "POST",
-      endpoint = revokeUrl.toString(),
+      endpoint = revokeUrl,
       nonce = nonce,
       accessToken = null,
     )
 
-    val callResponse = client.post(revokeUrl) {
+    val callResponse = client.post(Url(revokeUrl)) {
       headers["Content-Type"] = "application/x-www-form-urlencoded"
       headers["Authorization"] = "DPoP $accessToken"
       headers["DPoP"] = dpopHeader
@@ -358,7 +369,7 @@ class OAuthApi(
         put("nonce", JsonPrimitive(it))
       }
       accessToken?.let {
-        put("ath", JsonPrimitive(challengeSelector.selectCodeChallengeMethod(listOf("S256")).provideCodeChallenge(accessToken)))
+        put("ath", JsonPrimitive(OAuthCodeChallengeMethod.S256.provideCodeChallenge(accessToken)))
       }
     }
 

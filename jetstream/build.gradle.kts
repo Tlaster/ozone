@@ -1,4 +1,4 @@
-import org.jetbrains.dokka.gradle.AbstractDokkaTask
+import org.jetbrains.dokka.gradle.tasks.DokkaBaseTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -49,7 +49,7 @@ val generateLexicons = tasks.generateLexicons
 tasks.apiDump.configure { dependsOn(generateLexicons) }
 tasks.apiCheck.configure { dependsOn(generateLexicons) }
 
-tasks.withType<AbstractDokkaTask>().configureEach {
+tasks.withType<DokkaBaseTask>().configureEach {
   dependsOn(tasks.withType<KotlinCompile>())
 }
 tasks.named("dokkaGeneratePublicationHtml") {

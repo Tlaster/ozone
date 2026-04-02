@@ -34,7 +34,7 @@ rootProject.name = "ozone"
 include(":api-gen-runtime")
 include(":api-gen-runtime-internal")
 include(":bluesky")
-include(":jetstream")
+// include(":jetstream")
 include(":lexicons")
 include(":oauth")
 

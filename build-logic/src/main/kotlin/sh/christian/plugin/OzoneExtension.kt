@@ -46,7 +46,7 @@ abstract class OzoneExtension(
         nodejs()
         binaries.executable()
       }
-      wasmjs()
+      wasmJs()
     }
   }
 

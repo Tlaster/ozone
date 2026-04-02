@@ -41,5 +41,10 @@ kotlin {
         implementation(libs.crypto.webcrypto)
       }
     }
+    val wasmJsMain by getting {
+      dependencies {
+        implementation(libs.crypto.webcrypto)
+      }
+    }
   }
 }

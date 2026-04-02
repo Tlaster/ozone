@@ -36,5 +36,10 @@ kotlin {
         implementation(libs.ktor.js)
       }
     }
+    val wasmJsMain by getting {
+      dependencies {
+        implementation(libs.ktor.cio)
+      }
+    }
   }
 }

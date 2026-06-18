@@ -22,6 +22,8 @@ import kotlin.time.Duration
  * @param scopes The list of scopes granted to the access token.
  * @param subject The DID of the user account associated with the token.
  * @param nonce A unique string to prevent replay attacks, typically used in conjunction with DPoP.
+ * @param clientId The unique identifier for the OAuth client.
+ * @param pdsUrl The URL of the PDS (Personal Data Server) to use for authenticated resource requests.
  */
 @Serializable
 data class OAuthToken(
@@ -32,41 +34,64 @@ data class OAuthToken(
   val scopes: List<OAuthScope>,
   val subject: Did,
   val nonce: String,
+  val clientId: String = accessToken.payloadClaim("client_id").orEmpty(),
+  val pdsUrl: String = accessToken.pdsUrlFromAudienceClaim().orEmpty(),
 ) {
-  private val payloadJwt: String by lazy {
-    accessToken.split(".")[1]
-  }
-  private val payloadJson: JsonObject by lazy {
-    Json.decodeFromString(JsonObject.serializer(), payloadJwt.decodeBase64String())
-  }
-
   /**
-   * The unique identifier for the OAuth client.
+   * The audience of the JWT, when the access token happens to be a JWT.
+   *
+   * OAuth access tokens are opaque from the client's perspective. This value is only provided for compatibility with
+   * older tokens that did not persist [pdsUrl].
    */
-  val clientId: String by lazy {
-    requirePayload("client_id")
-  }
-
-  /**
-   * The audience of the JWT, typically the DID of the PDS (Personal Data Server) that the token is intended for.
-   */
-  val audience: Did by lazy {
-    Did(requirePayload("aud"))
+  val audience: String by lazy {
+    requirePayload("aud")
   }
 
   /**
    * The URL of the PDS (Personal Data Server) associated with the audience.
    */
   val pds: Url by lazy {
-    buildUrl {
-      protocol = URLProtocol.HTTPS
-      host = audience.toString().substringAfterLast(":")
-    }
+    pdsUrl.takeIf { it.isNotBlank() }?.let(::Url)
+      ?: audience.toPdsUrl()
+  }
+
+  private val payloadJson: JsonObject? by lazy {
+    accessToken.payloadJson()
   }
 
   private fun requirePayload(key: String): String {
-    return requireNotNull(payloadJson[key]?.let { (it as? JsonPrimitive)?.contentOrNull }) {
+    return requireNotNull(payloadJson?.stringClaim(key)) {
       "JWT payload does not contain '$key' claim"
     }
   }
+}
+
+private fun String.pdsUrlFromAudienceClaim(): String? {
+  return payloadClaim("aud")?.toPdsUrl()?.toString()
+}
+
+private fun String.payloadClaim(key: String): String? {
+  return payloadJson()?.stringClaim(key)
+}
+
+private fun String.payloadJson(): JsonObject? {
+  val payloadJwt = split(".").getOrNull(1) ?: return null
+  return runCatching {
+    Json.decodeFromString(JsonObject.serializer(), payloadJwt.decodeBase64String())
+  }.getOrNull()
+}
+
+private fun JsonObject.stringClaim(key: String): String? {
+  return this[key]?.let { (it as? JsonPrimitive)?.contentOrNull }
+}
+
+private fun String.toPdsUrl(): Url {
+  return runCatching { Url(this) }
+    .getOrElse {
+      val did = Did(this)
+      buildUrl {
+        protocol = URLProtocol.HTTPS
+        host = did.toString().substringAfterLast(":")
+      }
+    }
 }

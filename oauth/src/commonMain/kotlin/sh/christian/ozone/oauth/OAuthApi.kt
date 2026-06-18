@@ -208,7 +208,9 @@ class OAuthApi(
   ): OAuthToken {
     val requestParameters = ParametersBuilder().apply {
       append("grant_type", "refresh_token")
-      append("client_id", clientId)
+      if (clientId.isNotBlank()) {
+        append("client_id", clientId)
+      }
       append("refresh_token", refreshToken)
     }.build()
 
@@ -252,6 +254,8 @@ class OAuthApi(
           scopes = tokenResponse.scopes.split(" ").map { OAuthScope(it) },
           subject = tokenResponse.subject,
           nonce = responseDpopNonce,
+          clientId = requestParameters["client_id"].orEmpty(),
+          pdsUrl = oauthServer.resourceServerUrl().toString(),
         )
       },
       onNewNonce = { newNonce ->
@@ -316,7 +320,9 @@ class OAuthApi(
           Parameters.build {
             append("token", accessToken)
             append("token_type_hint", "access_token")
-            append("client_id", clientId)
+            if (clientId.isNotBlank()) {
+              append("client_id", clientId)
+            }
           }
         )
       )
@@ -402,6 +408,10 @@ class OAuthApi(
     // Use a provided DPoP key pair if provided, or the previously-used one if available, or generate a new one.
     return (providedKeyPair ?: dpopKeyPair ?: DpopKeyPair.generateKeyPair())
         .also { dpopKeyPair = it }
+  }
+
+  private fun OAuthAuthorizationServer.resourceServerUrl(): Url {
+    return Url(protectedResources.firstOrNull() ?: issuer)
   }
 
   private suspend inline fun <reified T : Any> HttpResponse.decodeResponse(

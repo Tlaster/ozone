@@ -34,12 +34,12 @@ fun LexiconArrayItem.requirements(): List<Requirement> = when (this) {
 fun LexiconArray.requirements(): List<Requirement> = listOfNotNull(
   minLength?.let(Requirement::MinLength),
   maxLength?.let(Requirement::MaxLength),
-) + items.requirements()
+)
 
 fun LexiconPrimitiveArray.requirements(): List<Requirement> = listOfNotNull(
   minLength?.let(Requirement::MinLength),
   maxLength?.let(Requirement::MaxLength),
-) + items.requirements()
+)
 
 fun LexiconReference.requirements(): List<Requirement> = emptyList()
 

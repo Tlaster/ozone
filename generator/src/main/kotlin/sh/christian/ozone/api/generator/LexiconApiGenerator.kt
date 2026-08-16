@@ -129,6 +129,7 @@ class LexiconApiGenerator(
         "*/*",
         "video/mp4",
         "application/jsonl",
+        "application/octet-stream",
         "application/vnd.ipld.car" -> binaryDataType.className()
         "text/plain" -> STRING
         "application/json" -> ClassName(context.authority, "${context.classPrefix}$suffix")
